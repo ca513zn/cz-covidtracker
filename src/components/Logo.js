@@ -4,7 +4,7 @@ function Logo(props) {
   return (
     <img
       alt="Logo"
-      src="/static/logo.svg"
+      src="/static/images/avatars/coronavirus.png"
       {...props}
     />
   );

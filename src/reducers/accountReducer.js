@@ -10,7 +10,23 @@ import {
 } from 'src/actions/accountActions';
 
 const initialState = {
-  user: null
+  user: {
+    id: '5e86809283e28b96d2d38537',
+    avatar: '/static/images/avatars/coronavirus.png',
+    bio: 'Sales Manager',
+    canHire: false,
+    country: 'USA',
+    email: 'katarina.smith@devias.io',
+    username: 'admin',
+    password: 'admin',
+    firstName: 'Covid',
+    isPublic: true,
+    lastName: 'Tracker',
+    phone: '+40 777666555',
+    role: 'admin',
+    state: 'New York',
+    timezone: '4:32PM (GMT-4)'
+  }
 };
 
 const accountReducer = (state = initialState, action) => {

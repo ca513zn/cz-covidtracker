@@ -22,7 +22,9 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     height: 32,
     width: 32,
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
+    borderRadius: 0
+
   },
   popover: {
     width: 200

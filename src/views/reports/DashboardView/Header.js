@@ -46,7 +46,7 @@ function Header({ className, ...rest }) {
   const classes = useStyles();
   const actionRef = useRef(null);
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [timeRange, setTimeRange] = useState(timeRanges[2].text);
+  const [timeRange, setTimeRange] = useState(timeRanges[0].text);
 
   return (
     <Grid
@@ -67,13 +67,13 @@ function Header({ className, ...rest }) {
             to="/app"
             component={RouterLink}
           >
-            Dashboard
+            Home
           </Link>
           <Typography
             variant="body1"
             color="textPrimary"
           >
-            Reports
+            Countries
           </Typography>
         </Breadcrumbs>
         <Typography
@@ -99,7 +99,7 @@ function Header({ className, ...rest }) {
         <Menu
           anchorEl={actionRef.current}
           onClose={() => setMenuOpen(false)}
-          open={isMenuOpen}
+          open={false}
           PaperProps={{ className: classes.menu }}
           getContentAnchorEl={null}
           anchorOrigin={{
@@ -114,7 +114,7 @@ function Header({ className, ...rest }) {
           {timeRanges.map((t) => (
             <MenuItem
               key={t.value}
-              onClick={() => setTimeRange(t.text)}
+              // onClick={() => setTimeRange(t.text)}
             >
               {t.text}
             </MenuItem>

@@ -15,39 +15,37 @@ import { Menu as MenuIcon } from 'react-feather';
 import Logo from 'src/components/Logo';
 import { THEMES } from 'src/constants';
 import Account from './Account';
-import Contacts from './Contacts';
-import Notifications from './Notifications';
-import Search from './Search';
-import Settings from './Settings';
 
-const useStyles = makeStyles((theme) => ({
+import Search from './Search';
+
+const useStyles = makeStyles(theme => ({
   root: {
     zIndex: theme.zIndex.drawer + 100,
-    ...theme.name === THEMES.LIGHT ? {
-      boxShadow: 'none',
-      backgroundColor: theme.palette.primary.main
-    } : {},
-    ...theme.name === THEMES.ONE_DARK ? {
-      backgroundColor: theme.palette.background.default
-    } : {}
+    ...(theme.name === THEMES.LIGHT
+      ? {
+          boxShadow: 'none',
+          backgroundColor: theme.palette.primary.main
+        }
+      : {}),
+    ...(theme.name === THEMES.ONE_DARK
+      ? {
+          backgroundColor: theme.palette.background.default
+        }
+      : {})
   },
   toolbar: {
     minHeight: 64
+  },
+  logo: {
+    width: 32
   }
 }));
 
-function TopBar({
-  className,
-  onMobileNavOpen,
-  ...rest
-}) {
+function TopBar({ className, onMobileNavOpen, ...rest }) {
   const classes = useStyles();
 
   return (
-    <AppBar
-      className={clsx(classes.root, className)}
-      {...rest}
-    >
+    <AppBar className={clsx(classes.root, className)} {...rest}>
       <Toolbar className={classes.toolbar}>
         <Hidden lgUp>
           <IconButton
@@ -61,21 +59,17 @@ function TopBar({
           </IconButton>
         </Hidden>
         <Hidden mdDown>
-          <RouterLink to="/">
-            <Logo />
-          </RouterLink>
+          <Box ml={2}>
+            <Account />
+          </Box>
         </Hidden>
-        <Box
-          ml={2}
-          flexGrow={1}
-        />
+        <Box ml={2} flexGrow={1} />
         <Search />
-        <Contacts />
-        <Notifications />
-        <Settings />
+        <Hidden lgUp>
         <Box ml={2}>
           <Account />
         </Box>
+        </Hidden>
       </Toolbar>
     </AppBar>
   );
