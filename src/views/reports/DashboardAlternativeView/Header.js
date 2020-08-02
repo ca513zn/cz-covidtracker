@@ -19,7 +19,7 @@ import { Calendar as CalendarIcon } from 'react-feather';
 const timeRanges = [
   {
     value: 'today',
-    text: 'Today'
+    text: 'Latest'
   },
   {
     value: 'yesterday',
