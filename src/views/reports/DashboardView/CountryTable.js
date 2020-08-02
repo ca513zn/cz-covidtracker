@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import {
   Box,
   Card,
-  Button,
   Table,
   TableBody,
   TableCell,
@@ -16,7 +15,6 @@ import {
   makeStyles
 } from '@material-ui/core';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
-
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -28,7 +26,10 @@ const useStyles = makeStyles(theme => ({
   },
   navigateNextIcon: {
     marginLeft: theme.spacing(1)
-  }
+  },
+  flag: {
+    marginRight: '3px'
+  },
 }));
 
 function descendingComparator(a, b, orderBy) {
@@ -118,12 +119,13 @@ function EnhancedTableHead(props) {
   return (
     <TableHead>
       <TableRow>
-        {headCells.map(headCell => (
+        {headCells.map((headCell, index) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? 'right' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === headCell.id ? order : false}
+            className={index === 0 ? classes.column : ''}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
@@ -151,7 +153,6 @@ function LatestProjects({ className, rows, ...rest }) {
     setOrderBy(property);
   };
 
-
   if (!rows) {
     return null;
   }
@@ -178,32 +179,51 @@ function LatestProjects({ className, rows, ...rest }) {
                 // .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   // const isItemSelected = isSelected(row.name);
-                  const labelId = `enhanced-table-checkbox-${index}`;
+                  const labelId = `country-${index}`;
 
                   return (
                     <TableRow
                       hover
                       // onClick={event => handleClick(event, row.name)}
-                      role="checkbox"
                       // aria-checked={isItemSelected}
                       tabIndex={-1}
                       key={row.Country}
                       // selected={isItemSelected}
                     >
                       <TableCell
-                        component="th"
                         id={labelId}
-                        scope="row"
-                        padding="default"
                       >
-                        {row.Country}
+                        <Box
+                          display="flex"
+                          alignItems="center"
+                          minWidth="180px"
+                        >
+                          <img
+                          className={classes.flag}
+                            src={`https://www.countryflags.io/${row.CountryCode}/flat/16.png`}
+                          />
+
+                          {row.Country}
+                        </Box>
                       </TableCell>
-                      <TableCell align="right">{row.NewConfirmed?.toLocaleString()}</TableCell>
-                      <TableCell align="right">{row.TotalConfirmed?.toLocaleString()}</TableCell>
-                      <TableCell align="right">{row.NewDeaths?.toLocaleString()}</TableCell>
-                      <TableCell align="right">{row.TotalDeaths?.toLocaleString()}</TableCell>
-                      <TableCell align="right">{row.NewRecovered?.toLocaleString()}</TableCell>
-                      <TableCell align="right">{row.TotalRecovered?.toLocaleString()}</TableCell>
+                      <TableCell align="right">
+                        {row.NewConfirmed?.toLocaleString()}
+                      </TableCell>
+                      <TableCell align="right">
+                        {row.TotalConfirmed?.toLocaleString()}
+                      </TableCell>
+                      <TableCell align="right">
+                        {row.NewDeaths?.toLocaleString()}
+                      </TableCell>
+                      <TableCell align="right">
+                        {row.TotalDeaths?.toLocaleString()}
+                      </TableCell>
+                      <TableCell align="right">
+                        {row.NewRecovered?.toLocaleString()}
+                      </TableCell>
+                      <TableCell align="right">
+                        {row.TotalRecovered?.toLocaleString()}
+                      </TableCell>
                     </TableRow>
                   );
                 })}
