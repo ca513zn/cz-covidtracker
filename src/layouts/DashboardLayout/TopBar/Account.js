@@ -83,34 +83,7 @@ function Account() {
           </Typography>
         </Hidden>
       </Box>
-      <Menu
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center'
-        }}
-        keepMounted
-        PaperProps={{ className: classes.popover }}
-        getContentAnchorEl={null}
-        anchorEl={ref.current}
-        open={isOpen}
-      >
-        <MenuItem
-          component={RouterLink}
-          to="/app/social/profile"
-        >
-          Profile
-        </MenuItem>
-        <MenuItem
-          component={RouterLink}
-          to="/app/account"
-        >
-          Account
-        </MenuItem>
-        <MenuItem onClick={handleLogout}>
-          Logout
-        </MenuItem>
-      </Menu>
+   
     </>
   );
 }
