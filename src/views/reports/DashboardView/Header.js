@@ -35,7 +35,7 @@ const timeRanges = [
   }
 ];
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {},
   actionIcon: {
     marginRight: theme.spacing(1)
@@ -69,29 +69,14 @@ function Header({ className, ...rest }) {
           >
             Home
           </Link>
-          <Typography
-            variant="body1"
-            color="textPrimary"
-          >
+          <Typography variant="body1" color="textPrimary">
             Countries
           </Typography>
         </Breadcrumbs>
-        <Typography
-          variant="h3"
-          color="textPrimary"
-        >
-          Here&apos;s what&apos;s happening
-        </Typography>
       </Grid>
       <Grid item>
-        <Button
-          ref={actionRef}
-          onClick={() => setMenuOpen(true)}
-        >
-          <SvgIcon
-            fontSize="small"
-            className={classes.actionIcon}
-          >
+        <Button ref={actionRef} onClick={() => setMenuOpen(true)}>
+          <SvgIcon fontSize="small" className={classes.actionIcon}>
             <CalendarIcon />
           </SvgIcon>
           {timeRange}
@@ -111,7 +96,7 @@ function Header({ className, ...rest }) {
             horizontal: 'center'
           }}
         >
-          {timeRanges.map((t) => (
+          {timeRanges.map(t => (
             <MenuItem
               key={t.value}
               // onClick={() => setTimeRange(t.text)}

@@ -6,26 +6,16 @@ import LoadingScreen from 'src/components/LoadingScreen';
 
 const routesConfig = [
   {
-    exact: true,
-    path: '/',
-    component: () => <Redirect to="/home" />
-  },
-  {
     path: '/',
     layout: DashboardLayout,
     routes: [
       {
         exact: true,
-        path: '/home',
+        path: '/',
         component: lazy(() => import('src/views/reports/DashboardView'))
       },
       {
-        exact: true,
-        path: '/dash2',
-        component: lazy(() => import('src/views/reports/DashboardAlternativeView'))
-      },
-      {
-        component: () => <Redirect to="/home" />
+        component: () => <Redirect to="/" />
       }
     ]
   }

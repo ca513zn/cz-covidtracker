@@ -60,12 +60,6 @@ function Header({ className, ...rest }) {
             {' '}
             {user.firstName}
           </Typography>
-          <Typography
-            variant="subtitle1"
-            color="textPrimary"
-          >
-            Here’s what’s happening with your projects today
-          </Typography>
           <Box mt={2}>
             <Button
               className={classes.action}

@@ -17,10 +17,6 @@ import {
 } from '@material-ui/core';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import axios from 'axios';
-
-import useIsMountedRef from 'src/hooks/useIsMountedRef';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -144,10 +140,8 @@ function EnhancedTableHead(props) {
   );
 }
 
-function LatestProjects({ className, ...rest }) {
+function LatestProjects({ className, rows, ...rest }) {
   const classes = useStyles();
-  const isMountedRef = useIsMountedRef();
-  const [rows, setRows] = useState(null);
   const [order, setOrder] = useState('asc');
 
   const [orderBy, setOrderBy] = useState('Country');
@@ -158,17 +152,6 @@ function LatestProjects({ className, ...rest }) {
     setOrderBy(property);
   };
 
-  const getProjects = useCallback(() => {
-    axios.get('https://api.covid19api.com/summary').then(response => {
-      if (isMountedRef.current) {
-        setRows(response.data.Countries);
-      }
-    });
-  }, [isMountedRef]);
-
-  useEffect(() => {
-    getProjects();
-  }, [getProjects]);
 
   if (!rows) {
     return null;
@@ -205,7 +188,7 @@ function LatestProjects({ className, ...rest }) {
                       role="checkbox"
                       // aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={row.Country}
                       // selected={isItemSelected}
                     >
                       <TableCell
@@ -216,12 +199,12 @@ function LatestProjects({ className, ...rest }) {
                       >
                         {row.Country}
                       </TableCell>
-                      <TableCell align="right">{row.NewConfirmed}</TableCell>
-                      <TableCell align="right">{row.TotalConfirmed}</TableCell>
-                      <TableCell align="right">{row.NewDeaths}</TableCell>
-                      <TableCell align="right">{row.TotalDeaths}</TableCell>
-                      <TableCell align="right">{row.NewRecovered}</TableCell>
-                      <TableCell align="right">{row.TotalRecovered}</TableCell>
+                      <TableCell align="right">{row.NewConfirmed?.toLocaleString()}</TableCell>
+                      <TableCell align="right">{row.TotalConfirmed?.toLocaleString()}</TableCell>
+                      <TableCell align="right">{row.NewDeaths?.toLocaleString()}</TableCell>
+                      <TableCell align="right">{row.TotalDeaths?.toLocaleString()}</TableCell>
+                      <TableCell align="right">{row.NewRecovered?.toLocaleString()}</TableCell>
+                      <TableCell align="right">{row.TotalRecovered?.toLocaleString()}</TableCell>
                     </TableRow>
                   );
                 })}

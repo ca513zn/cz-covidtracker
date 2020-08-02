@@ -19,27 +19,27 @@ import {
   Typography,
   makeStyles
 } from '@material-ui/core';
-import ReceiptIcon from '@material-ui/icons/ReceiptOutlined';
+// import ReceiptIcon from '@material-ui/icons/ReceiptOutlined';
 import {
-  Briefcase as BriefcaseIcon,
-  Calendar as CalendarIcon,
-  ShoppingCart as ShoppingCartIcon,
-  Folder as FolderIcon,
-  BarChart as BarChartIcon,
-  Lock as LockIcon,
-  UserPlus as UserPlusIcon,
-  Shield as ShieldIcon,
-  AlertCircle as AlertCircleIcon,
-  Trello as TrelloIcon,
-  User as UserIcon,
-  Layout as LayoutIcon,
-  Edit as EditIcon,
-  DollarSign as DollarSignIcon,
-  Mail as MailIcon,
-  MessageCircle as MessageCircleIcon,
-  PieChart as PieChartIcon,
-  Share2 as ShareIcon,
-  Users as UsersIcon
+  //   Briefcase as BriefcaseIcon,
+  //   Calendar as CalendarIcon,
+  //   ShoppingCart as ShoppingCartIcon,
+  //   Folder as FolderIcon,
+  //   BarChart as BarChartIcon,
+  //   Lock as LockIcon,
+  //   UserPlus as UserPlusIcon,
+  //   Shield as ShieldIcon,
+  //   AlertCircle as AlertCircleIcon,
+  //   Trello as TrelloIcon,
+  //   User as UserIcon,
+  //   Layout as LayoutIcon,
+  //   Edit as EditIcon,
+  //   DollarSign as DollarSignIcon,
+  //   Mail as MailIcon,
+  //   MessageCircle as MessageCircleIcon,
+  PieChart as PieChartIcon
+  // Share2 as ShareIcon,
+  // Users as UsersIcon
 } from 'react-feather';
 import Logo from 'src/components/Logo';
 import NavItem from './NavItem';
@@ -354,6 +354,10 @@ const useStyles = makeStyles(() => ({
     width: 64,
     height: 64,
     borderRadius: 0
+  },
+  attribution: {
+    width: '100%',
+    backgroundColor: 'red'
   }
 }));
 
@@ -415,6 +419,11 @@ function NavBar({ openMobile, onMobileClose }) {
           ))}
         </Box>
       </PerfectScrollbar>
+      <Box p={2}>
+        <Typography color="textSecondary" variant="caption">
+          Carlos Z. 2020
+        </Typography>
+      </Box>
     </Box>
   );
 

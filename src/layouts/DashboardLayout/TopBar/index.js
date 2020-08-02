@@ -16,7 +16,6 @@ import Logo from 'src/components/Logo';
 import { THEMES } from 'src/constants';
 import Account from './Account';
 
-import Search from './Search';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -64,7 +63,6 @@ function TopBar({ className, onMobileNavOpen, ...rest }) {
           </Box>
         </Hidden>
         <Box ml={2} flexGrow={1} />
-        <Search />
         <Hidden lgUp>
         <Box ml={2}>
           <Account />
