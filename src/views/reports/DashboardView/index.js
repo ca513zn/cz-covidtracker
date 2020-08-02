@@ -3,7 +3,6 @@ import { Container, Grid, makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import Header from './Header';
 import CountryTable from './CountryTable';
-import NewProjects from './NewProjects';
 import NewCases from './NewCases';
 import Recovered from './Recovered';
 import Deaths from './Deaths';

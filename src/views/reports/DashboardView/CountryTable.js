@@ -42,7 +42,7 @@ function descendingComparator(a, b, orderBy) {
 }
 
 function getComparator(order, orderBy) {
-  return order === 'desc'
+  return order === 'asc'
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
@@ -105,7 +105,6 @@ const headCells = [
 function EnhancedTableHead(props) {
   const {
     classes,
-
     order,
     orderBy,
     numSelected,
@@ -144,7 +143,7 @@ function LatestProjects({ className, rows, ...rest }) {
   const classes = useStyles();
   const [order, setOrder] = useState('asc');
 
-  const [orderBy, setOrderBy] = useState('Country');
+  const [orderBy, setOrderBy] = useState('NewConfirmed');
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';

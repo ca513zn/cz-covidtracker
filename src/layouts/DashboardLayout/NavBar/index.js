@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import {
   Avatar,
   Box,
-  Chip,
   Divider,
   Drawer,
   Hidden,
@@ -41,7 +40,6 @@ import {
   // Share2 as ShareIcon,
   // Users as UsersIcon
 } from 'react-feather';
-import Logo from 'src/components/Logo';
 import NavItem from './NavItem';
 
 const navConfig = [
